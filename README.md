@@ -1,8 +1,11 @@
+streamlit link: https://aiot-lecture13-a8g2ugs3tqcpmdnmvzvapph.streamlit.app/
+
 # CWA Weather: fetch, store, view
 
 This small Python project downloads JSON weather data from the Central Weather Administration open data endpoint, parses location-level records, stores them into a local SQLite database (`data.db`), and provides a Streamlit app to view the stored data.
 
 Files
+
 - `fetch_and_store.py`: Download JSON, parse records, insert into `data.db`.
 - `app.py`: Streamlit app to read `data.db` and display rows.
 - `schema.sql`: SQL `CREATE TABLE` statement used for the database structure.
@@ -58,8 +61,10 @@ CREATE TABLE IF NOT EXISTS weather (
 ```
 
 Notes
+
 - The parser in `fetch_and_store.py` uses heuristics to support common CWA JSON shapes. Depending on upstream API changes, some fields may be None. The script logs parsing/insertion info.
 - If you want to re-create the DB from scratch, remove `data.db` and run `python fetch_and_store.py` again.
 
 Questions or improvements
+
 - I can add more robust parsing for additional fields, deduplication logic, or a small web UI for filtering/sorting — tell me which you'd like.
